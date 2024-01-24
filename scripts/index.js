@@ -28,8 +28,8 @@ function createCard(element, deleteCard) {
   return cardElement;
 }
 
-function deleteCard() {
-  const closeCard = document.querySelector('.places__item');
+function deleteCard(evt) {
+  const closeCard = evt.target.closest('.places__item');
   closeCard.remove();
 }
 
