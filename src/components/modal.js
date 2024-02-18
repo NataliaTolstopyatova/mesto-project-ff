@@ -1,7 +1,5 @@
-import {popupFormCard} from "./index.js";
-
 export function openModal(popup) {
-  popup.classList.add('popup_is-opened', 'popup_is-animated');
+  popup.classList.add('popup_is-opened');
   popup.addEventListener('click', closeOverlay);
   document.addEventListener('keydown', closeEsc);
 };
@@ -10,7 +8,6 @@ export function closeModal(popup) {
   popup.classList.remove('popup_is-opened');
   popup.removeEventListener('click', closeOverlay);
   document.removeEventListener('keydown', closeEsc);
-  popupFormCard.reset(); 
 };
 
 function closeOverlay(evt) { 
