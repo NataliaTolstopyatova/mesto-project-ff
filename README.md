@@ -3,5 +3,6 @@
 
 Сервис под названием Mesto: интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
 
-ССылка на проект: https://nataliatolstopyatova.github.io/mesto-project-ff/
+###### Ссылка на проект: 
+https://nataliatolstopyatova.github.io/mesto-project-ff/
 
