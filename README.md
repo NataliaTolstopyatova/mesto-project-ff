@@ -1,3 +1,7 @@
-https://github.com/NataliaTolstopyatova/mesto-project-ff
 # Проектная работа Mesto
+Описание проекта
+
+Сервис под названием Mesto: интерактивная страница, куда можно добавлять фотографии, удалять их и ставить лайки.
+
+ССылка на проект: https://nataliatolstopyatova.github.io/mesto-project-ff/
 
