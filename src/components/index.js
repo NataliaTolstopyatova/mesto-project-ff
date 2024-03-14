@@ -93,18 +93,16 @@ function openImage(imageSrc, captionText) {
 
 // ---------------------------------------------------------------------
 
-function openFormSubmit() {
+function openProfileForm() {
  clearValidation(formEditProfile, validationConfig);
  openModal(popupEditProfile);
  nameInput.value = profileTitle.textContent;  
  jobInput.value = profileDescription.textContent;
 };
 
-function submitAddCardForm(evt) {
+function submitProfileForm(evt) {
   evt.preventDefault();
 
-  profileTitle.textContent = nameInput.value;
-  profileDescription.textContent = jobInput.value;
   popupButton.textContent = "Сохранение...";
 
   editProfile(nameInput.value, jobInput.value)
@@ -127,7 +125,7 @@ function submitAddCardForm(evt) {
 
 // ---------------------------------------------------------------------
 
-function openHandleFormSubmitCard() {
+function openFormCard() {
   clearValidation(popupFormCard, validationConfig);
   openModal(popupAddCard);
   placeName.value = '';
@@ -163,7 +161,7 @@ function handleFormSubmitCard(evt) {
 
 // ---------------------------------------------------------------------
 
-function openHandleFormSubmitAvatar() {
+function openFormAvatar() {
   clearValidation(formAvatar, validationConfig);
   openModal(popupTypeAvatar);
   avatarLink.value = '';
@@ -192,11 +190,11 @@ function handleFormSubmitAvatar(evt) {
 
 // ---------------------------------------------------------------------
 
-profileButton.addEventListener('click', openFormSubmit);
-formEditProfile.addEventListener('submit', submitAddCardForm);
-profileAddButton.addEventListener('click', openHandleFormSubmitCard);
+profileButton.addEventListener('click', openProfileForm);
+formEditProfile.addEventListener('submit', submitProfileForm);
+profileAddButton.addEventListener('click', openFormCard);
 popupFormCard.addEventListener('submit', handleFormSubmitCard);
-profileImageButton.addEventListener('click', openHandleFormSubmitAvatar);
+profileImageButton.addEventListener('click', openFormAvatar);
 formAvatar.addEventListener('submit', handleFormSubmitAvatar);
 popupTypeEditClose.addEventListener('click', () => closeModal(popupEditProfile));
 popupTypeImageClose.addEventListener('click', () => closeModal(popupTypeImage));

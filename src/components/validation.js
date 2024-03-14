@@ -44,10 +44,10 @@ const enableValidation = (validationConfig) => {
   const formList = document.querySelectorAll(validationConfig.formSelector);
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-  });
+      evt.preventDefault();
+    });
 
-  setEventListeners(formElement, validationConfig);
+    setEventListeners(formElement, validationConfig);
   });
 };
 
@@ -62,9 +62,10 @@ const disableSubmitButton = (button, validationConfig) => {
   button.classList.add(validationConfig.inactiveButtonClass);
 };
 
+
 function toggleButtonState (inputList, buttonElement, validationConfig) {
   if (hasInvalidInput(inputList)) {
-    disableSubmitButton(buttonElement, validationConfig.inactiveButtonClass);
+    disableSubmitButton(buttonElement, validationConfig);
   } else {
     buttonElement.disabled = false;
     buttonElement.classList.remove(validationConfig.inactiveButtonClass);
@@ -83,7 +84,3 @@ const clearValidation = (formElement, validationConfig) => {
 };
 
 export {enableValidation, clearValidation};
-
-
-
-
