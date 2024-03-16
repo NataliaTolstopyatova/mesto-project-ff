@@ -16,12 +16,14 @@ const popupTypeEditClose = popupEditProfile.querySelector('.popup__close');
 const formEditProfile = popupEditProfile.querySelector('.popup__form');
 const nameInput = formEditProfile.querySelector('.popup__input_type_name');
 const jobInput = formEditProfile.querySelector('.popup__input_type_description');
+const saveButtonProfile = formEditProfile.querySelector('.popup__button');
 
 const popupAddCard = document.querySelector('.popup_type_new-card');
 const popupTypeNewCardClose = popupAddCard.querySelector('.popup__close');
 const popupFormCard = popupAddCard.querySelector('.popup__form');
 const placeName = popupFormCard.querySelector('.popup__input_type_card-name');
 const placeLink = popupFormCard.querySelector('.popup__input_type_url');
+const saveButtonCard = popupFormCard.querySelector('.popup__button');
 
 const popupTypeImage = document.querySelector('.popup_type_image');
 const popupTypeImageClose = popupTypeImage.querySelector('.popup__close');
@@ -35,11 +37,9 @@ const popupTypeAvatar = document.querySelector('.popup_type_avatar');
 const formAvatar = popupTypeAvatar.querySelector('.popup__form');
 const avatarCloseButton = popupTypeAvatar.querySelector('.popup__close');
 const avatarLink = formAvatar.querySelector('.popup__input_type_url_avatar');
-
-const popupButton = document.querySelector('.popup__button');
+const saveButtonAvatar = formAvatar.querySelector('.popup__button');
 
 let userId;
-
 // ---------------------------------------------------------------------
 
 loadingData().then((res) => {
@@ -103,7 +103,7 @@ function openProfileForm() {
 function submitProfileForm(evt) {
   evt.preventDefault();
 
-  popupButton.textContent = "Сохранение...";
+  saveButtonProfile.textContent = "Сохранение...";
 
   editProfile(nameInput.value, jobInput.value)
   .then((element) => {
@@ -112,15 +112,15 @@ function submitProfileForm(evt) {
     
     profileTitle.textContent = userName;
     profileDescription.textContent = userAbout;
+
+    closeModal(popupEditProfile);
   })
   .catch((err) => {
     console.error(err);
   })
   .finally(() => {
-    popupButton.textContent = "Сохранить";
+    saveButtonProfile.textContent = "Сохранить";
   });
-
-  closeModal(popupEditProfile);
 };
 
 // ---------------------------------------------------------------------
@@ -135,7 +135,7 @@ function openFormCard() {
 function handleFormSubmitCard(evt) {
   evt.preventDefault();
 
-  popupButton.textContent = "Сохранение...";
+  saveButtonCard.textContent = "Сохранение...";
 
   addNewCard(placeName.value, placeLink.value)
     .then((element) => {
@@ -155,7 +155,7 @@ function handleFormSubmitCard(evt) {
       console.error(err);
     })
     .finally(() => {
-      popupButton.textContent = "Сохранить";
+      saveButtonCard.textContent = "Сохранить";
     });
 };
 
@@ -170,7 +170,7 @@ function openFormAvatar() {
 function handleFormSubmitAvatar(evt) {
   evt.preventDefault();
 
-  popupButton.textContent = "Сохранение...";
+  saveButtonAvatar.textContent = "Сохранение...";
 
   updateUsersAvatar(avatarLink.value)
     .then((element) => {
@@ -182,7 +182,7 @@ function handleFormSubmitAvatar(evt) {
       console.error(err);
     })
     .finally(() => {
-      popupButton.textContent = "Сохранить";
+     saveButtonAvatar.textContent = "Сохранить";
     });
 
     formAvatar.reset();
